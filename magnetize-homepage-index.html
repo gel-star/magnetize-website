@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magnetize — Specialist PPC Agency for Complex Buying Journeys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;1,16..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C0622;
+    --ink-soft:#17103A;
+    --ink-card:#20283300;
+    --paper:#FCFBFE;
+    --paper-2:#F0EFF8;
+    --steel:#56566F;
+    --steel-light:#8E8EA8;
+    --line:#E6E5F0;
+    --line-dark:#2A2358;
+    --charge:#5C66D6;
+    --charge-deep:#4951C4;
+    --deep:#323275;
+    --violet:#A671E0;
+    --spark:#A671E0;
+    --display:'Archivo',sans-serif;
+    --body:'Newsreader',Georgia,serif;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--charge);color:#fff}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--steel);
+  }
+  h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:1.04}
+  .btn{
+    font-family:var(--display);font-weight:600;font-size:15px;
+    letter-spacing:-.01em;
+    display:inline-flex;align-items:center;gap:9px;
+    padding:14px 22px;border-radius:2px;
+    transition:transform .18s ease,background .18s ease,color .18s ease;
+    cursor:pointer;border:1.5px solid transparent;
+  }
+  .btn .arr{transition:transform .2s ease}
+  .btn:hover .arr{transform:translateX(4px)}
+  .btn-primary{background:var(--charge);color:#fff}
+  .btn-primary:hover{background:var(--charge-deep)}
+  .btn-ghost{border-color:var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn-ghost-light{border-color:rgba(255,255,255,.32);color:var(--paper)}
+  .btn-ghost-light:hover{background:var(--paper);color:var(--ink)}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:padding .25s ease}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.04em;display:flex;align-items:center;gap:8px}
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--charge);display:inline-block;position:relative;top:1px}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-item{font-family:var(--display);font-weight:500;font-size:15px;color:var(--ink);display:flex;align-items:center;gap:5px;position:relative;cursor:pointer}
+  .nav-item .chev{font-size:11px;color:var(--steel);transition:transform .2s ease}
+  .nav-item:hover .chev{transform:translateY(2px)}
+  .dropdown{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:8px;min-width:208px;opacity:0;visibility:hidden;transition:all .2s ease;box-shadow:0 18px 40px -18px rgba(20,24,30,.28)}
+  .has-drop:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .drop-link{display:block;padding:9px 12px;font-size:14.5px;color:var(--ink);border-radius:3px}
+  .drop-link:hover{background:var(--paper-2);color:var(--charge)}
+  .drop-link span{display:block;font-family:var(--mono);font-size:10.5px;color:var(--steel-light);letter-spacing:.04em;margin-top:1px}
+  .drop-soon{padding:9px 12px;font-size:13px;color:var(--steel-light);font-style:italic;border-top:1px solid var(--line);margin-top:4px}
+  .nav-cta{font-family:var(--display);font-weight:600;font-size:14.5px;background:var(--ink);color:var(--paper);padding:11px 18px;border-radius:2px;transition:background .18s}
+  .nav-cta:hover{background:var(--charge)}
+  .burger{display:none;font-size:26px;background:none;border:none;color:var(--ink);cursor:pointer}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:78px 0 0;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center}
+  .hero h1{font-size:60px;font-weight:800;letter-spacing:-.035em;margin:18px 0 0}
+  .hero h1 .em{font-style:normal;background:linear-gradient(118deg,var(--charge) 0%,var(--violet) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-sub{font-size:21px;color:#2C333D;margin-top:24px;max-width:33ch}
+  .hero-sub .lede{font-family:var(--display);font-weight:600;font-size:22px;color:var(--ink);display:block;margin-bottom:14px;letter-spacing:-.01em;line-height:1.25}
+  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .hero-foot{margin-top:30px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--steel);text-transform:uppercase}
+
+  /* journey signature */
+  .journey{position:relative;height:430px}
+  .journey svg{width:100%;height:100%;overflow:visible}
+  .field-ring{fill:none;stroke:var(--line);stroke-width:1}
+  .feed-path{fill:none;stroke:var(--charge);stroke-width:1.5;stroke-dasharray:5 6;opacity:0;stroke-dashoffset:0;animation:feedIn 1s ease .9s forwards}
+  @keyframes feedIn{to{opacity:.55}}
+  .node{opacity:0;transform-box:fill-box;transform-origin:center}
+  .node circle{fill:var(--paper);stroke:var(--steel-light);stroke-width:1.5}
+  .node.lit circle{stroke:var(--charge)}
+  .node.won circle{fill:var(--spark);stroke:var(--spark)}
+  .node-label{font-family:var(--mono);font-size:11px;fill:var(--steel);letter-spacing:.02em}
+  .node-tag{font-family:var(--mono);font-size:9.5px;fill:var(--steel-light);letter-spacing:.04em}
+  .n1{animation:settle .55s cubic-bezier(.2,.8,.25,1) .15s forwards}
+  .n2{animation:settle .55s cubic-bezier(.2,.8,.25,1) .30s forwards}
+  .n3{animation:settle .55s cubic-bezier(.2,.8,.25,1) .45s forwards}
+  .n4{animation:settle .55s cubic-bezier(.2,.8,.25,1) .60s forwards}
+  .n5{animation:settle .55s cubic-bezier(.2,.8,.25,1) .75s forwards}
+  .n6{animation:settle .7s cubic-bezier(.2,.8,.25,1) .95s forwards}
+  @keyframes settle{from{opacity:0}to{opacity:1}}
+  .pulse{transform-origin:center;animation:pulse 2.6s ease-in-out 1.6s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.16)}}
+
+  /* ---------- AWARDS STRIP ---------- */
+  .awards{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:70px;background:var(--paper-2)}
+  .awards-inner{display:flex;align-items:center;gap:40px;padding:22px 0;flex-wrap:wrap;justify-content:center}
+  .awards-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+  .award-chip{font-family:var(--display);font-weight:600;font-size:13.5px;color:#3A424E;display:flex;align-items:center;gap:8px}
+  .award-chip .yr{font-family:var(--mono);font-size:11px;color:var(--charge)}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:96px 0}
+  .sec-head{max-width:720px;margin-bottom:54px}
+  .sec-head h2{font-size:42px;margin-top:16px;letter-spacing:-.03em}
+  .sec-head p{color:var(--steel);font-size:19px;margin-top:18px;max-width:60ch}
+
+  /* two ways */
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .way{border:1px solid var(--line);border-radius:5px;padding:38px 34px;background:var(--paper);transition:border-color .2s,transform .2s}
+  .way:hover{border-color:var(--ink);transform:translateY(-3px)}
+  .way .tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--charge)}
+  .way h3{font-size:27px;margin:14px 0 4px;letter-spacing:-.02em}
+  .way .role{font-family:var(--body);font-style:italic;color:var(--steel);font-size:17px;margin-bottom:20px}
+  .way ul{list-style:none}
+  .way li{font-size:16.5px;padding:11px 0 11px 26px;position:relative;border-top:1px solid var(--line);color:#2C333D}
+  .way li:before{content:"";position:absolute;left:2px;top:18px;width:8px;height:8px;border:1.5px solid var(--charge);border-radius:50%}
+  .way a.more{display:inline-flex;align-items:center;gap:7px;margin-top:24px;font-family:var(--display);font-weight:600;font-size:15px;color:var(--charge)}
+  .way a.more .arr{transition:transform .2s}
+  .way a.more:hover .arr{transform:translateX(4px)}
+  .ways-foot{text-align:center;margin-top:30px;font-style:italic;color:var(--steel);font-size:17px}
+  .ways-foot a{color:var(--charge);font-style:normal;font-family:var(--display);font-weight:600}
+
+  /* problem (dark) */
+  .dark{background:var(--ink);color:var(--paper)}
+  .dark .eyebrow{color:var(--steel-light)}
+  .dark .sec-head h2{color:var(--paper)}
+  .dark .sec-head p{color:#9AA3B0}
+  .blockers{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:6px;overflow:hidden}
+  .blocker{background:var(--ink);padding:30px 30px 32px}
+  .blocker .bnum{font-family:var(--mono);font-size:11px;color:var(--steel-light);letter-spacing:.1em}
+  .blocker h4{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.02em;margin:10px 0 12px;color:var(--paper)}
+  .blocker p{font-size:15.5px;color:#99A2B0;line-height:1.55}
+  .blocker .fix{display:block;margin-top:13px;font-size:14.5px;color:#C9CED6;border-top:1px solid var(--line-dark);padding-top:12px}
+  .blocker .fix b{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--charge);display:block;margin-bottom:5px}
+
+  /* fix steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .step{position:relative;padding-top:30px}
+  .step .num{font-family:var(--display);font-weight:800;font-size:15px;color:var(--charge);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  .step:before{content:"";position:absolute;top:6px;left:0;right:0;height:2px;background:var(--line)}
+  .step:after{content:"";position:absolute;top:3px;left:0;width:8px;height:8px;border-radius:50%;background:var(--charge)}
+  .step h3{font-size:22px;margin:16px 0 12px;letter-spacing:-.02em}
+  .step p{font-size:16px;color:#2C333D}
+
+  /* results */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:10px}
+  .metric{border-top:2px solid var(--ink);padding-top:18px}
+  .metric .big{font-family:var(--display);font-weight:800;font-size:46px;letter-spacing:-.04em;line-height:1}
+  .metric .big .spark{color:var(--spark)}
+  .metric .lbl{font-size:15px;color:var(--steel);margin-top:10px;line-height:1.4}
+
+  /* trusted / services */
+  .trusted-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+  .tlogo{height:64px;border:1px solid var(--line);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:var(--steel-light);letter-spacing:.08em}
+  .platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .platform{border:1px solid var(--line);border-radius:5px;padding:32px 30px;transition:border-color .2s,transform .2s}
+  .platform:hover{border-color:var(--ink);transform:translateY(-3px)}
+  .platform .pi{width:38px;height:38px;border-radius:50%;background:var(--paper-2);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;color:var(--charge);font-size:17px}
+  .platform h3{font-size:21px;margin:18px 0 10px;letter-spacing:-.02em}
+  .platform p{font-size:15.5px;color:#2C333D}
+  .platform a{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--charge)}
+
+  /* team */
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .member{}
+  .member .ph{aspect-ratio:4/3;background:linear-gradient(150deg,var(--paper-2),#E8E5DD);border-radius:5px;display:flex;align-items:flex-end;padding:18px;position:relative;overflow:hidden}
+  .member .ph .init{font-family:var(--display);font-weight:800;font-size:54px;color:#CFCBBF;letter-spacing:-.04em;position:absolute;top:16px;right:22px}
+  .member h3{font-size:20px;margin:18px 0 2px}
+  .member .rl{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--charge)}
+  .member p{font-size:15.5px;color:#2C333D;margin-top:12px}
+
+  /* best for */
+  .bestfor{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
+  .bf{display:flex;gap:14px;align-items:flex-start;padding:24px;background:var(--paper-2);border-radius:5px}
+  .bf .ck{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--charge);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-family:var(--display);font-weight:700;margin-top:2px}
+  .bf p{font-size:16px;color:var(--ink)}
+
+  /* final cta */
+  .final{text-align:center;padding:110px 0}
+  .final h2{font-size:48px;letter-spacing:-.035em;max-width:18ch;margin:18px auto 0}
+  .final .fcta{display:flex;gap:14px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+
+  footer{background:var(--ink);color:#8A93A0;padding:54px 0 40px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  .foot-inner .logo{color:var(--paper)}
+
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:30px}
+    .journey{height:320px;order:2}
+    .hero h1{font-size:46px}
+    .blockers,.steps,.metrics,.platforms,.team,.bestfor,.trusted-logos,.ways{grid-template-columns:1fr}
+    .metrics,.trusted-logos{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .burger{display:block}
+    .sec-head h2{font-size:33px}
+    .final h2{font-size:34px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .node,.feed-path{opacity:1!important;animation:none!important}
+    .feed-path{opacity:.55!important}
+    .pulse{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">Magnetize<span class="dot"></span></a>
+    <div class="nav-links">
+      <a class="nav-item" href="#">About</a>
+      <div class="nav-item has-drop">PPC Management <span class="chev">▾</span>
+        <div class="dropdown">
+          <a class="drop-link" href="#">Google Ads Agency<span>Search · Performance Max · YouTube</span></a>
+          <a class="drop-link" href="#">Microsoft Ads Agency<span>Bing · senior, lower-cost reach</span></a>
+          <a class="drop-link" href="#">Meta Ads Agency<span>Facebook · Instagram demand</span></a>
+        </div>
+      </div>
+      <div class="nav-item has-drop">Who we help <span class="chev">▾</span>
+        <div class="dropdown">
+          <a class="drop-link" href="#">Lead gen PPC<span>Search — capture demand</span></a>
+          <a class="drop-link" href="#">Lead gen Meta<span>Social — create demand</span></a>
+          <div class="drop-soon">Industries — coming soon</div>
+        </div>
+      </div>
+      <div class="nav-item has-drop">Our work <span class="chev">▾</span>
+        <div class="dropdown">
+          <a class="drop-link" href="#">Case studies</a>
+          <a class="drop-link" href="#">Awards</a>
+          <a class="drop-link" href="#">Testimonials</a>
+        </div>
+      </div>
+      <a class="nav-item" href="#">Insights</a>
+      <a class="nav-cta" href="#">Book a Discovery Call</a>
+    </div>
+    <button class="burger" aria-label="Open menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Specialist PPC · Service businesses</span>
+      <h1>Specialist PPC Agency for <span class="em">Complex Buying Journeys</span></h1>
+      <p class="hero-sub">
+        <span class="lede">Your PPC reports look healthy. Your pipeline tells a different story.</span>
+        Magnetize is the PPC agency for service businesses whose buyers don't convert in one session. Where revenue runs through enquiries, calls and weeks of consideration, we give the platforms the full picture — so spend follows profit, not the cheapest click.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#">Book a Discovery Call <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#">See Our Work</a>
+      </div>
+      <p class="hero-foot">Healthcare · Professional services · SaaS · B2B</p>
+    </div>
+
+    <div class="journey" aria-hidden="true">
+      <svg viewBox="0 0 440 430" role="img">
+        <title>A buying journey: scattered touchpoints aligning into a path from click to revenue</title>
+        <circle class="field-ring" cx="220" cy="215" r="200"/>
+        <circle class="field-ring" cx="220" cy="215" r="140"/>
+        <path class="feed-path" d="M70,90 C140,70 150,180 210,170 C275,160 250,300 320,300 C360,300 380,250 380,360"/>
+
+        <g class="node n1 lit" transform="translate(70,90)">
+          <circle r="13"/>
+          <circle r="5" fill="var(--charge)" stroke="none"/>
+          <text class="node-label" x="20" y="-2">Click</text>
+          <text class="node-tag" x="20" y="12">all Google sees</text>
+        </g>
+        <g class="node n2" transform="translate(210,170)">
+          <circle r="11"/>
+          <text class="node-label" x="18" y="4">Enquiry</text>
+        </g>
+        <g class="node n3" transform="translate(120,250)">
+          <circle r="11"/>
+          <text class="node-label" x="18" y="4">Sales call</text>
+        </g>
+        <g class="node n4" transform="translate(320,300)">
+          <circle r="11"/>
+          <text class="node-label" x="18" y="4">CRM stage</text>
+        </g>
+        <g class="node n5" transform="translate(255,375)">
+          <circle r="11"/>
+          <text class="node-label" x="18" y="4">Consideration</text>
+        </g>
+        <g class="node n6 won" transform="translate(380,360)">
+          <circle class="pulse" r="16"/>
+          <text class="node-label" x="24" y="-2" style="fill:var(--spark);font-weight:500">Revenue</text>
+          <text class="node-tag" x="24" y="12" style="fill:var(--steel)">the buyer worth winning</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="awards">
+    <div class="wrap awards-inner">
+      <span class="awards-label">Recognised by</span>
+      <span class="award-chip">UK Paid Media Awards <span class="yr">'26</span></span>
+      <span class="award-chip">UK Search Awards <span class="yr">'25</span></span>
+      <span class="award-chip">European Agency Awards <span class="yr">'25</span></span>
+      <span class="award-chip">Start-Up Agency of the Year</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Who we help</span>
+      <h2>Two ways we build PPC for profit</h2>
+      <p>Whether buyers find you through search or social, the journey rarely ends in one session. We capture the demand that already exists — and create the demand that doesn't yet.</p>
+    </div>
+    <div class="ways">
+      <div class="way">
+        <span class="tag">Search · Google + Microsoft</span>
+        <h3>Lead Generation PPC</h3>
+        <p class="role">For businesses where a "lead" isn't a lead until your sales team qualifies it.</p>
+        <ul>
+          <li>Optimised for qualified enquiries and sales conversations, not form fills</li>
+          <li>Clean tracking that separates real interest from accidental clicks</li>
+          <li>CRM integration and offline conversions, so platforms optimise to pipeline</li>
+        </ul>
+        <a class="more" href="#">View Lead Generation PPC <span class="arr">→</span></a>
+      </div>
+      <div class="way">
+        <span class="tag">Social · Facebook + Instagram</span>
+        <h3>Lead Generation Meta</h3>
+        <p class="role">For businesses that need to create demand, not just capture it.</p>
+        <ul>
+          <li>Campaigns that fill your pipeline before prospects reach Google</li>
+          <li>Lead forms built to qualify, so sales spends time on real opportunities</li>
+          <li>The same CRM feedback loop, so Meta optimises to pipeline, not cheap leads</li>
+        </ul>
+        <a class="more" href="#">View Lead Generation Meta <span class="arr">→</span></a>
+      </div>
+    </div>
+    <p class="ways-foot">Most clients use both — search to capture intent, Meta to create it. <a href="#">Not sure of the right mix? →</a></p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The real problem</span>
+      <h2>Most PPC problems aren't Google's fault. They're structural.</h2>
+      <p>In nearly every account we audit, the platform isn't the problem. It's what's been built on top of it — poor conversion data, structures that ignore commercial reality, and buying journeys the platforms never get to see.</p>
+    </div>
+    <div class="blockers">
+      <div class="blocker">
+        <span class="bnum">01</span>
+        <h4>Your data treats everything equally</h4>
+        <p>A call from a qualified buyer is worth far more than a brochure download — but most accounts treat them the same, so Google chases the cheapest conversion.</p>
+        <span class="fix"><b>What we do</b>We value each action by its real commercial impact and feed those values back, so bidding chases revenue.</span>
+      </div>
+      <div class="blocker">
+        <span class="bnum">02</span>
+        <h4>One-size-fits-all campaigns</h4>
+        <p>A £200 service and a £20,000 contract get treated identically, so budget flows to the easiest wins instead of the most profitable ones.</p>
+        <span class="fix"><b>What we do</b>We structure at service-line level and use margin data to steer budget toward profit, not volume.</span>
+      </div>
+      <div class="blocker">
+        <span class="bnum">03</span>
+        <h4>A journey the platform can't see</h4>
+        <p>A patient researches for weeks. A B2B buyer loops in three departments. If your account tracks only the last click, all of it is invisible.</p>
+        <span class="fix"><b>What we do</b>We track micro-conversions, CRM stages and offline sales, feeding the signals that actually predict revenue.</span>
+      </div>
+      <div class="blocker">
+        <span class="bnum">04</span>
+        <h4>Budget goes where it's easiest</h4>
+        <p>One branch is fully booked while another needs clients. A default structure can't see the difference, so spend lands in the wrong place.</p>
+        <span class="fix"><b>What we do</b>We build around your locations, service lines and capacity, steering spend to what converts profitably now.</span>
+      </div>
+      <div class="blocker">
+        <span class="bnum">05</span>
+        <h4>Demand the business can't serve</h4>
+        <p>Calls go unanswered. Leads sit in the CRM. None of it shows in a PPC report, but all of it decides whether spend becomes revenue.</p>
+        <span class="fix"><b>What we do</b>We match PPC to how you actually operate — schedules, lead types and targeting around real capacity.</span>
+      </div>
+      <div class="blocker">
+        <span class="bnum">06</span>
+        <h4>Strong campaigns, weak landing pages</h4>
+        <p>An ad promises value; a slow page with a long form undoes it in seconds, and paid traffic leaves before converting.</p>
+        <span class="fix"><b>What we do</b>We sharpen the message and remove friction so the page delivers what the ad promised.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">How Magnetize fix it</span>
+      <h2>Commercial understanding first. Then best-in-class execution.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Deep commercial understanding</h3>
+        <p>Before any campaigns, we learn how you actually earn revenue — margins, capacity, sales process and lifetime value. We've managed PPC in-house at PE-backed companies, so we know the pressures you're under.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Built for lead generation</h3>
+        <p>We design the account around how you make money. On search, clean tracking and offline conversions. On Meta, demand that feeds the same CRM — so search and social pull in the same direction.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>A specialist on your account</h3>
+        <p>Each team member is selected from 1,000+ applicants. The person on your account is a true PPC specialist who's run serious budgets — not a generalist learning on your spend.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What changes</span>
+      <h2>What changes when the foundation gets rebuilt</h2>
+      <p>When data, structure and the full buying journey align from day one — the results aren't cheaper clicks. They're leads that become revenue.</p>
+    </div>
+    <div class="metrics">
+      <div class="metric" style="border-color:var(--charge)">
+        <div class="big" style="color:var(--paper)">27%<span class="spark">↓</span></div>
+        <div class="lbl" style="color:#9AA3B0">Cost per booking, year on year — bookings maintained</div>
+      </div>
+      <div class="metric" style="border-color:var(--charge)">
+        <div class="big" style="color:var(--paper)">240→310</div>
+        <div class="lbl" style="color:#9AA3B0">Peak monthly online bookings once demand was present</div>
+      </div>
+      <div class="metric" style="border-color:var(--charge)">
+        <div class="big" style="color:var(--paper)">£2.30</div>
+        <div class="lbl" style="color:#9AA3B0">Cost per NHS booking across 150+ dental practices</div>
+      </div>
+      <div class="metric" style="border-color:var(--charge)">
+        <div class="big" style="color:var(--paper)">4,701</div>
+        <div class="lbl" style="color:#9AA3B0">NHS new-patient bookings driven from paid social</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:34px">
+      <span class="eyebrow">Trusted by</span>
+      <h2>Marketing leaders in healthcare, professional services and B2B</h2>
+    </div>
+    <div class="trusted-logos">
+      <div class="tlogo">CEDA</div>
+      <div class="tlogo">RODERICKS</div>
+      <div class="tlogo">CLIENT 03</div>
+      <div class="tlogo">CLIENT 04</div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" style="padding-top:80px;padding-bottom:80px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">PPC management services</span>
+      <h2>Three platforms, three jobs in the journey</h2>
+      <p>We manage each platform in its own way, because each supports a different stage of how your customers buy. Always starting from your margins, sales process and pipeline.</p>
+    </div>
+    <div class="platforms">
+      <div class="platform" style="background:var(--ink-soft);border-color:var(--line-dark)">
+        <div class="pi">G</div>
+        <h3 style="color:var(--paper)">Google Ads</h3>
+        <p style="color:#99A2B0">Search, Performance Max and YouTube structured around your services, margins and capacity — optimised to real enquiries.</p>
+        <a href="#">Explore Google Ads →</a>
+      </div>
+      <div class="platform" style="background:var(--ink-soft);border-color:var(--line-dark)">
+        <div class="pi">M</div>
+        <h3 style="color:var(--paper)">Microsoft Ads</h3>
+        <p style="color:#99A2B0">Your best search activity mirrored into Bing — a senior, lower-cost audience reached without doubling the workload.</p>
+        <a href="#">Explore Microsoft Ads →</a>
+      </div>
+      <div class="platform" style="background:var(--ink-soft);border-color:var(--line-dark)">
+        <div class="pi">∞</div>
+        <h3 style="color:var(--paper)">Meta Ads</h3>
+        <p style="color:#99A2B0">Facebook and Instagram that create demand before buyers search — feeding the same CRM data so Meta learns who becomes pipeline.</p>
+        <a href="#">Explore Meta Ads →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The team</span>
+      <h2>The PPC specialists behind your account</h2>
+    </div>
+    <div class="team">
+      <div class="member">
+        <div class="ph"><span class="init">R</span></div>
+        <h3>Rob</h3>
+        <span class="rl">Founder</span>
+        <p>15 years in digital. Former in-house marketing lead at PE-backed service businesses — he ran the budgets and reported to the board.</p>
+      </div>
+      <div class="member">
+        <div class="ph"><span class="init">P</span></div>
+        <h3>Petar</h3>
+        <span class="rl">Senior PPC Manager</span>
+        <p>12 years in paid search. Former network agency lead at Dentsu on Co-op, Intel and Mastercard. Built for complex, CRM-connected accounts.</p>
+      </div>
+      <div class="member">
+        <div class="ph"><span class="init">C</span></div>
+        <h3>Craig</h3>
+        <span class="rl">Senior Performance Manager</span>
+        <p>12 years in digital, with deep healthcare PPC specialism — and an SEO background that shapes how paid and organic work together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" style="padding-top:80px;padding-bottom:80px">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:38px">
+      <span class="eyebrow">Who we're best for</span>
+      <h2>Built for businesses where every lead matters</h2>
+    </div>
+    <div class="bestfor">
+      <div class="bf" style="background:var(--ink-soft)"><span class="ck">✓</span><p style="color:var(--paper)">Investing upwards of £10,000 per month in PPC, or planning to get there</p></div>
+      <div class="bf" style="background:var(--ink-soft)"><span class="ck">✓</span><p style="color:var(--paper)">High-value lead-gen models where each enquiry genuinely matters</p></div>
+      <div class="bf" style="background:var(--ink-soft)"><span class="ck">✓</span><p style="color:var(--paper)">Teams who want an expert partner alongside in-house marketing and sales</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <span class="eyebrow">Start here</span>
+    <h2>Request a free PPC review</h2>
+    <div class="fcta">
+      <a class="btn btn-primary" href="#">Book a Discovery Call <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#">See Our Work</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a href="#" class="logo">Magnetize<span class="dot"></span></a>
+    <span>Specialist PPC Agency · Healthcare · Professional services · SaaS · B2B</span>
+    <span>© 2026 Magnetize</span>
+  </div>
+</footer>
+
+</body>
+</html>
